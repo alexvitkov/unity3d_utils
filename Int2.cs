@@ -13,34 +13,27 @@ public struct Int2 {
 		this.x = x;
 		this.y = y;
 	}
-	
-	public static explicit operator Vector2(Int2 i) {
-		return new Vector2(i.x, i.y);
-	}
 
-	public static explicit operator Int2(Vector2 v) {
-		return new Int2(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.y));
-	}
+	public static explicit operator Vector2(Int2 i) 
+		=> new Vector2((float)i.x, (float)i.y);
 
-	public override string ToString() {
-		return string.Format("(Int2: {0}, {1})", x, y);
-	}
+	public static explicit operator Int2(Vector2 v) 
+		=> new Int2(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.y));
 
-	public static Int2 operator +(Int2 a, Int2 b) {
-		return new Int2(a.x + b.x, a.y + b.y);
-	}
+	public static Int2 operator +(Int2 a, Int2 b)
+		=> new Int2(a.x + b.x, a.y + b.y);
 
-	public static Int2 operator -(Int2 a, Int2 b) {
-		return new Int2(a.x - b.x, a.y - b.y);
-	}
+	public static Int2 operator -(Int2 a, Int2 b)
+		=> new Int2(a.x - b.x, a.y - b.y);
 
-	public static Int2 operator *(int s, Int2 i) {
-		return new Int2(s * i.x, s * i.y);
-	}
+	public static Int2 operator *(int s, Int2 i) 
+		=> new Int2(s * i.x, s * i.y);
 
-	public static Int2 operator /(Int2 i, int s) {
-		return new Int2(i.x / s, i.y / s);
-	}
+	public static Int2 operator /(Int2 i, int s)
+		=> new Int2(i.x / s, i.y / s);
+
+	public override string ToString()
+		=> string.Format("(Int2: {0}, {1})", x, y);
 }
 
 #if UNITY_EDITOR
@@ -48,15 +41,14 @@ public struct Int2 {
 public class Int2Drawer : PropertyDrawer {
 	public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
 		EditorGUI.BeginProperty(position, label, property);
-		
-		// Draw prefix label
+
 		position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
 
-		// Reset indent because Unity
+		// reset indent because imgui is garbage
 		var indent = EditorGUI.indentLevel;
 		EditorGUI.indentLevel = 0;
 
-		// Draw x and y fields
+		// draw x and y fields
 		var xRect = new Rect(position.x, position.y, position.width/2, position.height);
 		EditorGUI.PropertyField(xRect, property.FindPropertyRelative("x"), new GUIContent(""));
 
@@ -65,7 +57,6 @@ public class Int2Drawer : PropertyDrawer {
 
 
 		EditorGUI.indentLevel = indent;
-
 		EditorGUI.EndProperty();
 	}
 }

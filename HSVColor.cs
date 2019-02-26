@@ -29,7 +29,6 @@ public struct HSVColor {
 	public static explicit operator HSVColor(Color rgbCol) {
 		return new HSVColor(rgbCol);
 	}
-
 	public override string ToString() {
 		return string.Format(
 			"HSVA({0}, {1}, {2}, {3})", 
@@ -40,6 +39,11 @@ public struct HSVColor {
 		);
 	}
 
+	// TODO
+	// hue will lerp from 0.1 to 0.9 like this: .1->.15->...->.85->.95
+	// should be able to go like this: .1->.05->0->.95->.9
+	// LerpAngle has similar functionality, can use that
+	// maybe later
 	public static HSVColor Lerp(HSVColor col1, HSVColor col2, float t) {
 		return new HSVColor(
 			Mathf.Lerp(col1.h, col2.h, t),

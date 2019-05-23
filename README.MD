@@ -8,7 +8,7 @@ serialziable int tuple struct + unityeditor propertydrawer class for it.
 hsv color, operators to convert to unity's rgb float-based color & static method that lerps based on hsv rather than rgb (broken :D) + unityeditor propertydrawer for it
 
 ## ColorExtensions.cs
-functions to quickly modify colors
+functions to quickly modify colors.
 instead of
 ```C#
 Color c = spriteRenderer.color;
@@ -21,4 +21,4 @@ spriteRenderer.color = spriteRenderer.color.WithAlpha(.5f);
 ```
 
 ## TransformExtensions2D
-functions for quickly rotating transforms over the Z axis and uniformly scaling them, useful for 2D
+functions for quickly rotating transforms over the Z axis and uniformly scaling them, useful for 2D.

@@ -1,5 +1,5 @@
-# ???
-unity3D scripts
+# what is this
+unity3D scripts that i've needed more than once
 
 ## Int2.cs
 serialziable int tuple struct + unityeditor propertydrawer class for it.
@@ -22,3 +22,6 @@ spriteRenderer.color = spriteRenderer.color.WithAlpha(.5f);
 
 ## TransformExtensions2D
 functions for quickly rotating transforms over the Z axis and uniformly scaling them, useful for 2D.
+
+## FlyCamera
+a very basic fly camera, about as basic as they come. unity has their own which is probably way better, but this one is like 20 lines

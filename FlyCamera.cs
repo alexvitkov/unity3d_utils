@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class FlyCamera : MonoBehaviour {
 
@@ -11,7 +11,7 @@ public class FlyCamera : MonoBehaviour {
 
 	private Vector3 currentVelocity;
 
-    void Update() {
+	void Update() {
 		Vector3 vel = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 		if (vel.magnitude > 1f) {
 			vel.Normalize();
@@ -23,5 +23,5 @@ public class FlyCamera : MonoBehaviour {
 		ang.y += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
 		ang.x -= Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 		transform.eulerAngles = ang;
-    }
+	}
 }

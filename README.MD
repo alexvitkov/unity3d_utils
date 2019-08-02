@@ -25,3 +25,15 @@ functions for quickly rotating transforms over the Z axis and uniformly scaling 
 
 ## FlyCamera
 a very basic fly camera, about as basic as they come. unity has their own which is probably way better, but this one is like 20 lines
+
+## VectorExtensions
+extension methods for quickly modifying vectors
+```C#
+Vector3 pos = transform.position;
+pos.x = 100;
+transform.position = pos;
+```
+becomes
+```C#
+transform.position = transform.position.WithX(100);
+```

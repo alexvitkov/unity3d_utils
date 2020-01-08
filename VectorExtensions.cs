@@ -21,6 +21,9 @@ public static class VectorExtensions {
 
     public static Vector2 WithY(this Vector2 v, float y)
         => new Vector2(v.x, y);
+    
+    public static Vector3 WithZ(this Vector2 v, float z)
+        => new Vector3(v.x, v.y, z);
 
     public static Vector2 WithMagnitude(this Vector2 vec, float mag)
         => vec.normalized * mag;
